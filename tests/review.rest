@@ -1,0 +1,34 @@
+@baseUrl = http://localhost:5000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Mzg5MDc4NTUyMmMyODA1NDc2ODczYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTc2MDI0OCwiZXhwIjoxNzM0MzUyMjQ4fQ.8pBGkQgkIJD7Q2Vc9b3FXkCBjti35AGVcPUUISvDwCI
+### Create a new rating and review
+POST {{baseUrl}}/ratings-reviews/6734f0a62d2b61322bbf69ef
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "rating": 5,
+    "review": "Besttt."
+}
+
+### Update an existing rating and review
+PUT {{baseUrl}}/ratings-reviews/6734cd9cc7fcedee4ce8fdf3
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "rating": 5,
+    "review": "After watching this movie again, I've decided to increase my rating. The nuances I noticed on the second viewing really elevated the experience. This is a masterpiece!"
+}
+
+### Get all ratings and reviews for a movie
+GET {{baseUrl}}/ratings-reviews/6734cd9cc7fcedee4ce8fdf3
+Authorization: Bearer {{token}}
+
+### Get review highlights for a movie
+GET {{baseUrl}}/ratings-reviews/6734cd9cc7fcedee4ce8fdf3/highlights
+Authorization: Bearer {{token}}
+
+### report a review 
+POST {{baseUrl}}/ratings-reviews/6734d59df621f142ccebb382/report
+Authorization: Bearer {{token}}
+Content-Type: application/json

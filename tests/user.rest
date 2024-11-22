@@ -1,0 +1,48 @@
+@baseUrl = http://localhost:5000/api
+
+###Register New User
+POST {{baseUrl}}/users/register
+Content-Type: application/json
+
+{
+    "username": "imadawan",
+    "email": "imadawan100@example.com",
+    "password": "12345678",
+    "isAdmin": true
+}
+
+###Login User
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+    "email": "imadawan100@example.com",
+    "password": "12345678"
+}
+
+###
+PUT {{baseUrl}}/users/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjYmE1YjkxZDYyYWZlZjIyOWUwZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTc1ODEwNywiZXhwIjoxNzM0MzUwMTA3fQ.r04-re-q6e8YXJbAp4tMYwFIragYebAkFqcjAHiGY8M
+
+{
+    "preferences": {
+    "favoriteGenres": ["action", "comedy","Drama","Crime"],
+    "favoriteActors": ["Tom Hanks", "Meryl Streep"],
+    "favoriteDirectors": ["Steven Spielberg"]
+  }
+}
+
+###
+POST {{baseUrl}}/users/wishlist
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjNDRiODBiYWQ5YjJmM2Q3ZDljYiIsImlhdCI6MTczMTUxMTQ0MCwiZXhwIjoxNzM0MTAzNDQwfQ.yANmALIEL9AAFyY4EEHbhMvFgV-2PnVPlqVCZ9QdMgw
+
+{
+    "movieId": "6789abcdef0123456789abcd"
+}
+
+###
+DELETE {{baseUrl}}/users/wishlist/6789abcdef0123456789abcd
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjNDRiODBiYWQ5YjJmM2Q3ZDljYiIsImlhdCI6MTczMTUxMTQ0MCwiZXhwIjoxNzM0MTAzNDQwfQ.yANmALIEL9AAFyY4EEHbhMvFgV-2PnVPlqVCZ9QdMgw

@@ -1,0 +1,46 @@
+@baseUrl = http://localhost:5000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Mzg5MDc4NTUyMmMyODA1NDc2ODczYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTc2MDI0OCwiZXhwIjoxNzM0MzUyMjQ4fQ.8pBGkQgkIJD7Q2Vc9b3FXkCBjti35AGVcPUUISvDwCI
+
+### Get all public lists
+GET {{baseUrl}}/public
+Authorization: Bearer {{token}}
+
+### Create a new list (authenticated)
+POST {{baseUrl}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "My Favorite Sci-Fi Movies",
+  "description": "A collection of my all-time favorite science fiction films",
+  "isPublic": true,
+  "tags": ["sci-fi", "space", "time travel"],
+  "movies": []
+}
+
+### Get user's lists (authenticated)
+GET {{baseUrl}}/my-lists
+Authorization: Bearer {{token}}
+
+### Update a list (authenticated)
+PUT {{baseUrl}}/67389c3f79e6d58a8bd61b35
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Updated Sci-Fi Movies List",
+  "description": "An updated collection of my favorite science fiction films",
+  "movies": ["6734f0c32d2b61322bbf69f3", "6738870b8800b3037d988a1d"]
+}
+
+### Delete a list (authenticated)
+DELETE {{baseUrl}}/67389b6a79e6d58a8bd61b23
+Authorization: Bearer {{token}}
+
+### Follow a list (authenticated)
+POST {{baseUrl}}/673918961f69da5c8974e598/follow
+Authorization: Bearer {{token}}
+
+### Unfollow a list (authenticated)
+POST {{baseUrl}}/673918961f69da5c8974e598/unfollow
+Authorization: Bearer {{token}}

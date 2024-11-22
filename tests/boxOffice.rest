@@ -1,0 +1,44 @@
+@baseUrl = http://localhost:5000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjYmE1YjkxZDYyYWZlZjIyOWUwZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTUxMzI1MywiZXhwIjoxNzM0MTA1MjUzfQ.TO7O_gUU91FtbhYjhCx3kzempIbhv13UgJYBIYvsbTI
+
+### Update Movie Box Office Information
+PATCH {{baseUrl}}/movie/6734f0a62d2b61322bbf69ef/box-office
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "boxOffice": {
+    "openingWeekend": 85000000,
+    "domestic": 245000000,
+    "international": 478000000,
+    "worldwide": 723000000
+  }
+}
+
+### Add Movie Award
+POST {{baseUrl}}/movie/6734f0a62d2b61322bbf69ef/awards
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Academy Awards",
+  "category": "Best Picture",
+  "year": 2024,
+  "won": true
+}
+
+### Add Multiple Awards (Alternative Example)
+POST {{baseUrl}}/movie/6734f0a62d2b61322bbf69ef/awards
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Golden Globe Awards",
+  "category": "Best Actor in a Drama",
+  "year": 2024,
+  "won": false
+}
+
+### Remove Movie Award
+DELETE {{baseUrl}}/movie/6734f0a62d2b61322bbf69ef/awards/6739219fbb2069720e016135
+Authorization: Bearer {{token}}

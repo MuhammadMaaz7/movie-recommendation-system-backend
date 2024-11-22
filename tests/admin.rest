@@ -1,0 +1,53 @@
+@baseUrl = http://localhost:5000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjYmE1YjkxZDYyYWZlZjIyOWUwZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTUxMzI1MywiZXhwIjoxNzM0MTA1MjUzfQ.TO7O_gUU91FtbhYjhCx3kzempIbhv13UgJYBIYvsbTI
+
+### Get all movies
+GET {{baseUrl}}/admin/movies?page=1&limit=20
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Update movie
+PUT {{baseUrl}}/admin/movies/6738acbfd9e9bd102c8676e6
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Updated Movie Title",
+  "description": "Updated movie description",
+  "releaseDate": "2024-01-01",
+  "genres": ["Action", "Adventure"]
+}
+
+### Delete movie
+DELETE {{baseUrl}}/admin/movies/6738acbfd9e9bd102c8676e6
+Authorization: Bearer {{token}}
+
+### Get dashboard statistics
+GET {{baseUrl}}/admin/dashboard
+Authorization: Bearer {{token}}
+
+### Get engagement metrics
+GET {{baseUrl}}/admin/engagement
+Authorization: Bearer {{token}}
+
+### Get all reported reviews
+GET {{baseUrl}}/admin/reviews/reported
+Authorization: Bearer {{token}}
+
+### Moderate review - Remove
+POST {{baseUrl}}/admin/reviews/673893f25522c28054768745/moderate
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "action": "remove"
+}
+
+### Moderate review - Approve
+POST {{baseUrl}}/admin/reviews/6734f636bf055f3084133634/moderate
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "action": "approve"
+}

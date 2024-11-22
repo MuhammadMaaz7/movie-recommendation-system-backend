@@ -1,0 +1,41 @@
+@baseUrl = http://localhost:5000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjYmE1YjkxZDYyYWZlZjIyOWUwZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTUxMzI1MywiZXhwIjoxNzM0MTA1MjUzfQ.TO7O_gUU91FtbhYjhCx3kzempIbhv13UgJYBIYvsbTI
+
+### Create New Article
+POST {{baseUrl}}/articles
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Upcoming Marvel Movie Announcement",
+  "content": "Marvel Studios has announced their next big project...",
+  "author": "John Smith",
+  "category": "movie",
+  "tags": ["Marvel", "Superheroes", "Announcement"],
+  "relatedMovies": ["6734cd9cc7fcedee4ce8fdf3"],
+  "relatedActors": ["Robert Downey Jr.", "Chris Evans"],
+  "imageUrl": "https://abcd.com/article-image.jpg"
+}
+
+### Get All Articles (Latest 20)
+GET {{baseUrl}}/articles
+Authorization: Bearer {{token}}
+
+### Get Specific Article by ID
+GET {{baseUrl}}/articles/67391fc5bb2069720e016116
+Authorization: Bearer {{token}}
+
+### Update Article
+PUT {{baseUrl}}/articles/67391fc5bb2069720e016116
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Updated: Upcoming Marvel Movie Announcement",
+  "content": "Updated content here...",
+  "tags": ["Marvel", "MCU", "Announcement"]
+}
+
+### Delete Article
+DELETE {{baseUrl}}/articles/67391fc5bb2069720e016116
+Authorization: Bearer {{token}}

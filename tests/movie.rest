@@ -1,0 +1,78 @@
+@baseUrl = http://localhost:5000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjYmE1YjkxZDYyYWZlZjIyOWUwZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTUxMzI1MywiZXhwIjoxNzM0MTA1MjUzfQ.TO7O_gUU91FtbhYjhCx3kzempIbhv13UgJYBIYvsbTI
+
+### Get all movies
+GET {{baseUrl}}/movies
+
+### Get a single movie
+GET {{baseUrl}}/movies/6734cd9cc7fcedee4ce8fdf3
+
+### Create a new movie
+POST {{baseUrl}}/movie
+Content-Type: application/json
+
+{
+  "title": "The Shawshank Redemption",
+  "genre": ["Drama", "Crime"],
+  "director": "Frank Darabont",
+  "cast": ["Tim Robbins", "Morgan Freeman"],
+  "releaseDate": "1994-09-23",
+  "runtime": 142,
+  "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+  "averageRating": 9.3,
+  "trivia": [
+    "The film was a box office disappointment, earning only $58 million against a $25 million budget.",
+    "Morgan Freeman was paid $3 million for his role, which was the highest salary of his career at the time."
+  ],
+  "goofs": [
+    "When Andy is digging his tunnel, the pile of dirt outside his cell seems to change size between shots."
+  ],
+  "soundtrack": [
+    "Sull'Aria (Letter Duet) by Wolfgang Amadeus Mozart",
+    "Marriage of Figaro by Wolfgang Amadeus Mozart"
+  ],
+  "ageRating": "R",
+  "parentalGuidance": "Contains some violence and strong language."
+}
+
+### Create a new movie
+POST {{baseUrl}}/movie
+Content-Type: application/json
+
+{
+  "title": "Spider Man EveryWay Home",
+  "genre": ["Action", "Sci-Fi", "Mystery"],
+  "director": "Alex Proyas",
+  "cast": ["Rufus Sewell", "Jennifer Connelly", "Kiefer Sutherland"],
+  "releaseDate": "2024-11-20",
+  "releaseDecade": 2020,
+  "runtime": 100,
+  "synopsis": "A man struggles with memories of his past, which include a wife he cannot remember and a nightmarish world no one else ever seems to wake up from.",
+  "averageRating": 8.5,
+  "popularity": 85,
+  "countryOfOrigin": "USA",
+  "language": "English",
+  "keywords": ["noir", "dark", "memory", "dystopia"],
+  "trivia": [
+    "The film was heavily influenced by film noir and German Expressionism",
+    "Roger Ebert gave the film 4 out of 4 stars"
+  ],
+  "ageRating": "R",
+  "parentalGuidance": "Contains violence and disturbing images",
+  "soundtrack": [
+    "The Dark City Theme by Trevor Jones",
+    "Sleep Now by Trevor Jones"
+  ]
+}
+
+### Update a movie
+PUT {{baseUrl}}/movie/6734cd9cc7fcedee4ce8fdf3
+Content-Type: application/json
+
+{
+  "releaseDate": "2024-11-17T00:00:00.000Z"
+}
+
+### Delete a movie
+DELETE {{baseUrl}}/movie/6734cd9cc7fcedee4ce8fdf3
+Authorization: Bearer {{token}}

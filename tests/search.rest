@@ -1,0 +1,53 @@
+@baseUrl = http://localhost:5000/api/
+
+### Basic text search
+GET {{baseUrl}}/search?query=Inception
+Content-Type: application/json
+
+### Search with multiple filters
+GET {{baseUrl}}/search?query=Dark&genre=Action&minRating=8&maxRating=10
+Content-Type: application/json
+
+### Search with invalid rating range (should fail)
+GET {{baseUrl}}/search?minRating=9&maxRating=8
+Content-Type: application/json
+
+### Search by director
+GET {{baseUrl}}/search?director=Christopher%20Nolan
+Content-Type: application/json
+
+### Search by actor
+GET {{baseUrl}}/search?actor=Leonardo%20DiCaprio
+Content-Type: application/json
+
+
+### 3. Test Top Movies Endpoints
+### Get default top movies
+GET {{baseUrl}}/top 
+Content-Type: application/json
+
+### Get top Action movies
+GET {{baseUrl}}/top?genre=Action&limit=5
+Content-Type: application/json
+
+### Get top movies this month
+GET {{baseUrl}}/top?type=month&limit=10
+Content-Type: application/json
+
+### 4. Test Decade Endpoints
+### Get 2010s movies
+GET {{baseUrl}}/decade?decade=1990
+Content-Type: application/json
+
+### Get 2000s movies with pagination
+GET {{baseUrl}}/decade?decade=1990&page=1&limit=5
+Content-Type: application/json
+
+### 5. Test Sort Options
+### Sort by rating descending
+GET {{baseUrl}}/search?sortBy=averageRating:desc
+Content-Type: application/json
+
+### Sort by popularity ascending
+GET {{baseUrl}}/search?sortBy=popularity:asc
+Content-Type: application/json

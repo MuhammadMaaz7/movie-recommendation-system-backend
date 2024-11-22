@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:5000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjYmE1YjkxZDYyYWZlZjIyOWUwZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTUxMzI1MywiZXhwIjoxNzM0MTA1MjUzfQ.TO7O_gUU91FtbhYjhCx3kzempIbhv13UgJYBIYvsbTI
+
+### Register a new user
+POST {{baseUrl}}/users/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "testuser@example.com",
+  "password": "password123"
+}
+
+###Login User
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+    "email": "imadawan100@example.com",
+    "password": "12345678"
+}
+
+
+### Set a movie reminder
+POST {{baseUrl}}/notifications/reminders
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "movieId": "67391dcebb2069720e0160f2",
+  "type": "RELEASE"
+}
+
+### Get user notifications
+GET {{baseUrl}}/notifications
+Authorization: Bearer {{token}}
+
+### Mark notification as read
+PATCH {{baseUrl}}/notifications/6738d3bba522905ef7ca9221/read
+Authorization: Bearer {{token}}

@@ -1,0 +1,56 @@
+### Discussion API Tests
+@baseUrl = http://localhost:5000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjYmE1YjkxZDYyYWZlZjIyOWUwZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTUxMzI1MywiZXhwIjoxNzM0MTA1MjUzfQ.TO7O_gUU91FtbhYjhCx3kzempIbhv13UgJYBIYvsbTI
+
+### Create a new discussion
+POST {{baseUrl}}/discussions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "What do you think about Inception?",
+  "content": "The ending still confuses me. What's your interpretation?",
+  "category": "movie",
+  "tags": ["christopher-nolan", "sci-fi", "mind-bending"],
+  "relatedMovie": "6734f0a62d2b61322bbf69ef",
+  "relatedGenre": "Science Fiction"
+}
+
+### Get all discussions (with pagination and filters)
+GET {{baseUrl}}/discussions?page=1&limit=20&category=movie&tag=sci-fi
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Get discussions by movie
+GET {{baseUrl}}/discussions?movie=6734f0a62d2b61322bbf69ef
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Get discussions by genre
+GET {{baseUrl}}/discussions?genre=Science Fiction
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Get single discussion
+GET {{baseUrl}}/discussions/6739226fbb2069720e016145
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Add comment to discussion
+POST {{baseUrl}}/discussions/6738f6fa9e1b34aff438a835/comments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "content": "I think the spinning top at the end suggests it was all a dream!"
+}
+
+### Like a discussion
+POST {{baseUrl}}/discussions/6738f6fa9e1b34aff438a835/like
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Like a comment
+POST {{baseUrl}}/discussions/6738f6fa9e1b34aff438a835/comments/6738f78e9e1b34aff438a869/like
+Authorization: Bearer {{token}}
+Content-Type: application/json

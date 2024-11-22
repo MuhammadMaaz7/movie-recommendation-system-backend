@@ -1,0 +1,20 @@
+### Variables
+@baseUrl = http://localhost:5000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MzRjYmE1YjkxZDYyYWZlZjIyOWUwZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMTc5NDQyOCwiZXhwIjoxNzM0Mzg2NDI4fQ.TZ8iNFGVXZM8Ge1gdHHawRkzRUVwVXdNHc0ud60WeN8
+@movieId = 6734f0b62d2b61322bbf69f1
+
+### Get Personalized Recommendations
+GET {{baseUrl}}/recommendations/personalized
+Authorization: Bearer {{token}}
+
+### Get Similar Movies
+GET {{baseUrl}}/recommendations/similar/{{movieId}}
+Authorization: Bearer {{token}}
+
+### Get Trending Movies
+GET {{baseUrl}}/recommendations/trending
+Authorization: Bearer {{token}}
+
+### Get Top Rated Movies
+GET {{baseUrl}}/recommendations/top-rated
+Authorization: Bearer {{token}}
